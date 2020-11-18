@@ -66,5 +66,11 @@ public class UsuarioController {
 	public ResponseEntity<List<Usuario>> findAllUsuariosDesativados() {
 		return new ResponseEntity<List<Usuario>>(usuarioService.findAllUsuariosDesativados(), HttpStatus.OK);
 	}
+	
+	// BUSCA USUARIOS DESATIVADOS POR NOME
+	@GetMapping("/usuariosDesativados_Nome")
+	public ResponseEntity<List<Usuario>> findAllUsuariosDesativados_nome(@RequestParam String nome) {
+		return new ResponseEntity<List<Usuario>>(usuarioService.findAllUsuariosDesativados_nome(nome), HttpStatus.OK);
+	}
 
 }

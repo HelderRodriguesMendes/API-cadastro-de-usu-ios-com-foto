@@ -40,4 +40,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	@Transactional
 	@Query(value = "select * from usuario where ativo = false", nativeQuery = true)
 	Optional<List<Usuario>> findAllUsuariosDesativados();
+
+	// BUSCA USUARIOS DESATIVADOS POR NOME
+	@Transactional
+	@Query(value = "select * from usuario where ativo = false and nome like %?1% order by nome limit 100", nativeQuery = true)
+	Optional<List<Usuario>> findAllUsuariosDesativados_nome(String nome);
 }
