@@ -14,12 +14,6 @@ import com.testePratico.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	// SALVA OU ALTERA A FOTO DE UM USUARIO
-	@Transactional
-	@Modifying
-	@Query(value = "update usuario set foto = ?1 where id = ?2", nativeQuery = true)
-	public void salvarFoto(byte[] foto, Long id);
-
 	// BUSCA TODOS OS USUARIOS ATIVOS
 	@Transactional
 	@Query(value = "select * from usuario where ativo = true order by nome ", nativeQuery = true)

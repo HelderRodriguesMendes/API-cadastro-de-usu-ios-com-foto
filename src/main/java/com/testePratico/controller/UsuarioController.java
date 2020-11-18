@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.testePratico.model.Usuario;
 import com.testePratico.service.UsuarioService;
@@ -31,17 +30,9 @@ public class UsuarioController {
 		return new ResponseEntity<Usuario>(usuarioService.salvar(usuario), HttpStatus.CREATED);
 	}
 
-	// SALVA OU ALTERA A FOTO DE UM USUARIO
-	@PutMapping("/salvarFoto/{id}")
-	public ResponseEntity<Boolean> salvar_alterarFoto(@RequestParam MultipartFile foto, @PathVariable("id") Long id) {
-
-		return new ResponseEntity<Boolean>(usuarioService.salvarFoto(foto, id), HttpStatus.OK);
-	}
-
 	// BUSCA TODOS OS USUARIOS ATIVOS
 	@GetMapping("/usuariosAtivos")
 	public ResponseEntity<List<Usuario>> findAllUsuariosAtivos() {
-		System.out.println("AQUI");
 		return new ResponseEntity<List<Usuario>>(usuarioService.findAllUsuariosAtivos(), HttpStatus.OK);
 	}
 

@@ -31,9 +31,11 @@ public class Usuario implements Serializable {
 	@Column(nullable = false, columnDefinition = "varchar(30)")
 	private String nome;
 
+	@Column(nullable = false)
 	private LocalDate dataNascimento;
 	
-	private Byte[] foto;
+	@Column(nullable = false, columnDefinition = "text")
+	private String foto;
 	
 	private Boolean ativo;
 	
